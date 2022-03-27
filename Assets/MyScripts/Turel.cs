@@ -8,14 +8,21 @@ public class Turel : MonoBehaviour
     public GameObject bullet;
     public float speed;
     public Transform bulletSpawn;
+    public bool isFire;
+    public float secondFire;
 
     private void Update()
     {
-        if(Vector3.Distance(transform.position, playerPosition.position) < 6)
+        Ray ray = new Ray(transform.position, transform.forward);
+        Debug.DrawRay(transform.position, transform.forward * 6, Color.blue);
+        if(Physics.Raycast(ray, out RaycastHit hit, 6))
         {
-            if (Input.GetMouseButtonDown(0))
+            if (hit.collider.CompareTag("Player"))
             {
-                Fire();
+                if (isFire)
+                {
+                    Fire();
+                }
             }
         }
     }
@@ -25,12 +32,16 @@ public class Turel : MonoBehaviour
         Vector3 rotateDis = Vector3.RotateTowards(transform.forward, distation, speed * Time.fixedDeltaTime, 0.0f);
         Quaternion rotate = Quaternion.LookRotation(rotateDis);
         transform.rotation = rotate;
+        
     }
 
     private void Fire()
     {
+        isFire = false;
         var bulletObj = Instantiate(bullet, bulletSpawn.position, bulletSpawn.rotation);
         var shield = bulletObj.GetComponent<Bullet>();
         shield.Init(playerPosition, 10, speed);
+
+        Invoke(nameof(Fire), secondFire);
     }
 }
