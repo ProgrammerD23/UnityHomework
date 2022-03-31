@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
         var vecPos = transform.position;
         vecPos.y += 0.5f;
         Debug.DrawRay(vecPos, player.position - transform.position, Color.red);
-        if (Physics.Raycast(ray, out RaycastHit hit, 100))
+        if (Physics.Raycast(ray, out RaycastHit hit, 40))
         {
             if (hit.collider.CompareTag("Player"))
             {
