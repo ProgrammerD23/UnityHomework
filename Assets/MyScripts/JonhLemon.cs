@@ -15,7 +15,6 @@ public class JonhLemon : MonoBehaviour
     {
         movement.x = Input.GetAxis("Horizontal");
         movement.z = Input.GetAxis("Vertical");
-       
 
         if (Input.GetKeyDown(KeyCode.E))
         {

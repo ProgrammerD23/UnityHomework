@@ -14,7 +14,9 @@ public class Turel : MonoBehaviour
     private void Update()
     {
         Ray ray = new Ray(transform.position, transform.forward);
-        Debug.DrawRay(transform.position, transform.forward * 6, Color.blue);
+        var vecPos = transform.position;
+        vecPos.y += 0.5f;
+        Debug.DrawRay(vecPos, transform.forward * 6, Color.blue);
         if(Physics.Raycast(ray, out RaycastHit hit, 6))
         {
             if (hit.collider.CompareTag("Player"))
@@ -40,7 +42,7 @@ public class Turel : MonoBehaviour
         isFire = false;
         var bulletObj = Instantiate(bullet, bulletSpawn.position, bulletSpawn.rotation);
         var shield = bulletObj.GetComponent<Bullet>();
-        shield.Init(playerPosition, 10, speed);
+        shield.Init(playerPosition, 2, speed);
 
         Invoke(nameof(Fire), secondFire);
     }
