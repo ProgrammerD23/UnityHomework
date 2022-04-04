@@ -10,6 +10,8 @@ public class JonhLemon : MonoBehaviour
     public Vector3 movement;
     public GameObject bomb;
     public Transform bombSpawn;
+    public Animator anim;
+    public float jumpForce;
 
     void Update()
     {
@@ -20,6 +22,11 @@ public class JonhLemon : MonoBehaviour
         {
             Instantiate(bomb, bombSpawn.position, bombSpawn.rotation);
         }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+        anim.SetBool("isWalking", movement != Vector3.zero);
     }
 
     private void FixedUpdate()

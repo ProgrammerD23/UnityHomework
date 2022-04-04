@@ -6,11 +6,13 @@ public class Door : MonoBehaviour
 {
     public Transform rotatePoint;
     private bool isStop;
+    public Animator anim;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && !isStop)
         {
-            rotatePoint.Rotate(Vector3.up, -90);
+            //rotatePoint.Rotate(Vector3.up, -90);
+            anim.SetBool("isOpen", true);
         }
         
     }
@@ -19,7 +21,8 @@ public class Door : MonoBehaviour
     {
         if (other.CompareTag("Player") && !isStop)
         {
-            rotatePoint.Rotate(Vector3.up, 90);
+            //rotatePoint.Rotate(Vector3.up, 90);
+            anim.SetBool("isOpen", false);
         }
     }
 }

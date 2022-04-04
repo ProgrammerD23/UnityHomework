@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     //public Transform[] waypoints;
     //private int waypointIndex;
     public int speed;
+    public Animator anim;
 
     private void Awake()
     {
@@ -28,7 +29,7 @@ public class Enemy : MonoBehaviour
     {
         //StartCoroutine(Des());
         StartCoroutine(Destination());
-        
+
     }
 
     public void Hurt(int damage)
