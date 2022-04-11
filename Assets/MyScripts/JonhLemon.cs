@@ -27,6 +27,7 @@ public class JonhLemon : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 
         anim.SetBool("isWalking", movement != Vector3.zero);
+
     }
 
     private void FixedUpdate()
