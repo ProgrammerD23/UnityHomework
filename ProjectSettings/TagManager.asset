@@ -4,9 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Bomb
-  - Enemy
-  - SoundExplotion
+  - DrinkAble
+  - Eatable
+  - OilBarrel
+  - LampControl
+  - Mineable
+  - Planter
+  - Generator
+  - SpotLight
+  - AI
   layers:
   - Default
   - TransparentFX
@@ -16,11 +22,11 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Lamps
+  - Support
+  - Holding
+  - Debug
+  - Generator
   - 
   - 
   - 
