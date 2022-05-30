@@ -1,6 +1,7 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Maze
 {
@@ -8,6 +9,8 @@ namespace Maze
     {
         private float lengthFly;
         private float speedRotation;
+
+        public event Action<string> OnCaughtPlayer= delegate (string str) {};
 
         private void Awake()
         {
@@ -27,7 +30,7 @@ namespace Maze
 
         protected override void Interaction()
         {
-
+            OnCaughtPlayer.Invoke(gameObject.name);
         }
 
         public override void Update()
