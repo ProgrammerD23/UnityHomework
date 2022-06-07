@@ -8,7 +8,7 @@ namespace Maze
     public sealed class GoodBonus : Bonus, IExecute, IFly
     {
         private float lengthFly;
-        private int Point = 1;
+        private int Point;
 
         public event Action<int> AddPoints = delegate (int point) { };
 
