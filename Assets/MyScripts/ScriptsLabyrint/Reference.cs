@@ -30,7 +30,7 @@ namespace Maze
             {
                 if (goodBonusetxt == null)
                 {
-                    var gameObject = Resources.Load<GameObject>("Assets/Resources/UI/GoodBonusText");
+                    var gameObject = Resources.Load<GameObject>("UI/GoodBonusText");
                     goodBonusetxt = Object.Instantiate(gameObject, Canvas.transform);
                 }
                 return goodBonusetxt;
