@@ -7,6 +7,8 @@ namespace Maze
     public abstract class Bonus : MonoBehaviour, IExecute
     {
         private bool isInteractable;
+        SaveData bonusData = new SaveData();
+        private ISave data;
 
         public bool IsInteractable
         {
@@ -22,6 +24,8 @@ namespace Maze
         void Start()
         {
             IsInteractable = true;
+            bonusData.Position = transform.position;
+            data = new JSonData();
         }
         private void OnTriggerEnter(Collider other)
         {
@@ -29,6 +33,9 @@ namespace Maze
             {
                 Interaction();
                 IsInteractable = false;
+
+                data.Save(bonusData);
+                Debug.Log("OK");
             }
         }
 
