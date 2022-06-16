@@ -35,7 +35,6 @@ namespace Maze
                 IsInteractable = false;
 
                 data.Save(bonusData);
-                Debug.Log("OK");
             }
         }
 
